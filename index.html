@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Efcharis House Skopelos</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+  }
+  body {
+    background: linear-gradient(135deg, #2e2e2e, #23283b);
+    font-family: 'Montserrat', sans-serif;
+    color: #ddd;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px 50px;
+  }
+  header {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #383838;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+    margin-bottom: 50px;
+  }
+  header h1 {
+    font-weight: 700;
+    font-size: 28px;
+    color: #eee;
+    user-select: none;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: #bbb;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 25px;
+    background: #454545;
+    transition: background 0.3s, color 0.3s;
+  }
+  nav ul li a:hover {
+    background: #4caf50;
+    color: white;
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 850px;
+    height: 480px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+    background: #222;
+    margin-bottom: 40px;
+  }
+  .slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.2s ease-in-out;
+  }
+  .slide {
+    min-width: 100%;
+    height: 100%;
+    user-select: none;
+    cursor: pointer;
+  }
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+  }
+  .slide img:hover {
+    transform: scale(1.05);
+  }
+
+  .timer-wheel {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    width: 70px;
+    height: 70px;
+    pointer-events: none;
+    filter: drop-shadow(0 0 6px #4caf50cc);
+  }
+  svg circle {
+    fill: none;
+    stroke-width: 6;
+    stroke: #4caf50;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+  .background-circle {
+    stroke: #555;
+  }
+  .progress-circle {
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    transition: stroke-dashoffset 5s linear;
+  }
+
+  .intro {
+    max-width: 850px;
+    margin-bottom: 35px;
+    color: #ccc;
+    line-height: 1.7;
+  }
+  .intro h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+    color: #a5d6a7;
+    font-weight: 700;
+  }
+  .intro p, .intro ul {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .intro ul {
+    list-style: disc inside;
+  }
+
+  footer {
+    margin-top: auto;
+    padding: 20px 0;
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    border-top: 1px solid #444;
+    user-select: none;
+  }
+
+  @media (max-width: 900px) {
+    .carousel-container {
+      width: 100%;
+      height: 300px;
+      border-radius: 20px;
+    }
+    .slide img {
+      border-radius: 20px;
+    }
+    .intro h2 {
+      font-size: 24px;
+    }
+    .intro p, .intro ul {
+      font-size: 14px;
+    }
+    header {
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 15px 15px;
+    }
+    nav ul {
+      gap: 15px;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Efcharis House Skopelos</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="availability.html">Availability</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="carousel-container" aria-label="Image Carousel">
+  <div class="slides" id="slides">
+    <div class="slide"><img src="1.jpeg" alt="View of a beautiful house" /></div>
+    <div class="slide"><img src="2.jpeg" alt="Sea view from balcony" /></div>
+    <div class="slide"><img src="3.jpeg" alt="Lush garden around the house" /></div>
+    <div class="slide"><img src="4.jpeg" alt="Cozy interior room" /></div>
+    <div class="slide"><img src="5.jpeg" alt="Sunset at the beach nearby" /></div>
+  </div>
+
+  <div class="timer-wheel" aria-hidden="true">
+    <svg width="70" height="70" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+      <circle class="background-circle" cx="50" cy="50" r="35" />
+      <circle class="progress-circle" cx="50" cy="50" r="35" />
+    </svg>
+  </div>
+</div>
+
+<section class="intro">
+  <h2>About This Space</h2>
+  <p>Welcome to "Efcharis," where the fresh aroma of pine and sea breeze greet you! Nestled in Neos Klima, Efcharis offers you moments of pure tranquility and relaxation, surrounded by nature and just a short walk from some of the island’s most beautiful beaches—Hovolo, Kastani, Ftelia, Milia, and the famous Ai Giannis (from "Mamma Mia"), among others. This lovingly crafted home will make you feel at ease from the very first moment.</p>
+</section>
+
+<section class="intro">
+  <h2>The Space</h2>
+  <p>This charming 76-square-meter house is ideal for unwinding with family or friends. Designed with meticulous attention to detail, it offers supreme comfort and relaxation. The spacious corner sofa in the open living area invites restful moments, while the large dining table is perfect for memorable meals and gatherings.</p>
+  <p>Two cozy bedrooms feature large beds, and a fully equipped bathroom includes hair dryers and a washing machine. The modern kitchen is ready for you to prepare your favorite dishes.</p>
+  <p>Enjoy two beautiful terraces: the west-facing terrace offers a dining table and chairs—perfect for peaceful meals or afternoon drinks. The east-facing terrace has sun loungers for soaking up the sun or relaxing with a book.</p>
+</section>
+
+<section class="intro">
+  <h2>Neighborhood & Amenities</h2>
+  <p>Efcharis embodies peace and comfort. Nearby you'll find pristine beaches, shops, pharmacies, and tavernas—all within easy walking distance. The bus stop is just 100 meters away, and stunning bays are about 3 km from the house, ready for unforgettable seaside adventures.</p>
+  <p>Included amenities:</p>
+  <ul>
+    <li>Free Wi-Fi</li>
+    <li>TV for entertainment</li>
+    <li>Air conditioning in every bedroom and living space</li>
+    <li>Fully equipped kitchen: oven, refrigerator, toaster, kettle, French coffee maker, and Nespresso machine</li>
+    <li>Washing machine</li>
+    <li>Hairdryer</li>
+    <li>Safe for your valuables</li>
+    <li>Iron and ironing board</li>
+    <li>Fire extinguisher</li>
+    <li>Carbon monoxide detector</li>
+    <li>Two outdoor terraces as described</li>
+  </ul>
+</section>
+
+<section class="intro">
+  <h2>Special Instructions</h2>
+  <p>Check-in is from 3 PM using an access code (no owner presence required). Check-out is by 10:30 AM. Please kindly dispose of trash before departure. Suitable for all ages with only two internal steps. Pets are not allowed. Smoking and parties are strictly prohibited inside the house.</p>
+  <p>Please inform us 24 hours in advance of your check-in time. Also, Greek government regulations require guests to provide full name and passport/ID for tax reporting purposes.</p>
+</section>
+
+<footer>
+  <p>© 2025 Efcharis House Skopelos. All rights reserved.</p>
+</footer>
+
+<!-- Updated hotel style relaxing music -->
+<audio id="relax-music" autoplay loop>
+  <source src="hotel.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  const slides = document.getElementById('slides');
+  const progressCircle = document.querySelector('.progress-circle');
+  const totalSlides = slides.children.length;
+  let currentIndex = 0;
+  const circumference = 2 * Math.PI * 35;
+
+  progressCircle.style.strokeDasharray = circumference;
+  progressCircle.style.strokeDashoffset = circumference;
+
+  function resetProgress() {
+    progressCircle.style.transition = 'none';
+    progressCircle.style.strokeDashoffset = circumference;
+    progressCircle.getBoundingClientRect();
+    progressCircle.style.transition = 'stroke-dashoffset 5s linear';
+    progressCircle.style.strokeDashoffset = '0';
+  }
+
+  function showSlide(index) {
+    slides.style.transform = `translateX(-${index * 100}%)`;
+    resetProgress();
+    currentIndex = index;
+  }
+
+  function nextSlide() {
+    let next = (currentIndex + 1) % totalSlides;
+    showSlide(next);
+  }
+
+  showSlide(0);
+  setInterval(nextSlide, 5000);
+
+  const music = document.getElementById('relax-music');
+  music.volume = 0.15;
+</script>
+</body>
+</html>
