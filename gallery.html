@@ -1,37 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gallery - Efcharis House Skopelos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gallery - Efcharis House Skopelos</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  /* same styles as above */
+  * {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+  }
+  body {
+    background: linear-gradient(135deg, #2e2e2e, #23283b);
+    font-family: 'Montserrat', sans-serif;
+    color: #ddd;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px 50px;
+  }
+  header {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #383838;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+    margin-bottom: 50px;
+  }
+  header h1 {
+    font-weight: 700;
+    font-size: 28px;
+    color: #eee;
+    user-select: none;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: #bbb;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 25px;
+    background: #454545;
+    transition: background 0.3s, color 0.3s;
+  }
+  nav ul li a:hover {
+    background: #4caf50;
+    color: white;
+  }
+  nav ul li a.active {
+    background: #4caf50;
+    color: white;
+    box-shadow: 0 0 10px #4caf50cc;
+  }
+  section {
+    width: 100%;
+    max-width: 850px;
+    margin-bottom: 60px;
+    background: #252b37;
+    border-radius: 25px;
+    padding: 40px 60px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.85);
+    color: #ccc;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+  }
+  section h2 {
+    font-size: 32px;
+    color: #8fd18e;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    gap: 20px;
+  }
+  .gallery-grid img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease;
+  }
+  .gallery-grid img:hover {
+    transform: scale(1.05);
+  }
+  footer {
+    margin-top: auto;
+    padding: 20px 0;
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    border-top: 1px solid #444;
+    user-select: none;
+  }
+  @media (max-width: 900px) {
+    header {
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 15px 15px;
+    }
+    nav ul {
+      gap: 15px;
+    }
+    nav ul li a {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+    section {
+      padding: 30px 25px;
+      font-size: 16px;
+    }
+    section h2 {
+      font-size: 26px;
+      margin-bottom: 25px;
+    }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Efcharis House Skopelos</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="availability.html">Availability</a></li>
-        <li><a href="gallery.html" class="active">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <h1>Efcharis House Skopelos</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="availability.html">Availability</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <section class="gallery-page">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <img src="gallery1.jpg" alt="View 1" />
-      <img src="gallery2.jpg" alt="View 2" />
-      <img src="gallery3.jpg" alt="View 3" />
-      <img src="gallery4.jpg" alt="View 4" />
-    </div>
-  </section>
+<section role="main">
+  <h2>Gallery</h2>
+  <div class="gallery-grid">
+    <img src="gallery1.jpg" alt="View 1" />
+    <img src="gallery2.jpg" alt="View 2" />
+    <img src="gallery3.jpg" alt="View 3" />
+    <img src="gallery4.jpg" alt="View 4" />
+  </div>
+</section>
 
-  <footer>
-    <p>© 2025 Efcharis House Skopelos. All rights reserved.</p>
-  </footer>
+<footer>
+  <p>© 2025 Efcharis House Skopelos. All rights reserved.</p>
+</footer>
 </body>
 </html>
